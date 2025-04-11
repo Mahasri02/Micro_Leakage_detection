@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Smart Leak Detection System - Login</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #000;
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: #1f2937;
+      color: white;
+      padding: 15px 30px;
+    }
+
+    nav .logo {
+      font-size: 1.6em;
+      font-weight: 800;
+      letter-spacing: 1px;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 25px;
+    }
+
+    nav ul li a, .nav-buttons a {
+      color: white;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .nav-buttons a {
+      margin-left: 20px;
+      background-color: #4f46e5;
+      padding: 8px 16px;
+      border-radius: 5px;
+      transition: background-color 0.3s;
+    }
+
+    .nav-buttons a:hover {
+      background-color: #3730a3;
+    }
+
+    .login-container {
+      margin-top: 80px;
+      padding-top: 60px; 
+      margin-top: 100px; 
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      min-height: 100vh;
+      background: url('https://indianinfrastructure.com/wp-content/uploads/2021/06/II-47.jpg') no-repeat center center;
+      background-size: cover;
+      padding: 30px 20px;
+      padding-top: 20px; /* reduced from 50px */
+    }
+    
+    .login-container::before {
+      content: "";
+      position: absolute;
+      top: 0;  /* changed from 20px */
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.55);
+      z-index: 0;
+    }
+    
+    .login-left {
+      max-width: 380px; 
+      padding: 30px 25px;
+      position: relative;
+      z-index: 1;
+      background-color: white;
+      padding: 40px 30px;
+      border-radius: 16px;
+      box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
+      max-width: 450px;
+      width: 100%;
+      color: #333;
+    }
+
+    .login-left h2 {
+      font-size: 2.2em;
+      font-weight: 700;
+      margin-bottom: 10px;
+      color: #222;
+    }
+
+    .login-left p {
+      font-size: 1em;
+      margin-bottom: 30px;
+      color: #666;
+    }
+
+    .login-left input[type="email"],
+    .password-wrapper input[type="password"],
+    .password-wrapper input[type="text"] {
+      padding: 14px;
+      font-size: 1em;
+      width: 100%;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      margin-bottom: 20px;
+      box-sizing: border-box;
+      background-color: #f9f9f9;
+      color: #333;
+    }
+
+    .error-message {
+      color: #e53935;
+      font-size: 0.9em;
+      margin-top: -10px;
+      margin-bottom: 15px;
+      display: none;
+    }
+
+    .password-wrapper {
+      position: relative;
+      margin-bottom: 10px;
+    }
+
+    .password-label {
+      display: block;
+      margin-bottom: 8px;
+      font-size: 0.95em;
+      color: #444;
+    }
+
+    .toggle-password {
+      position: absolute;
+      right: 14px;
+      top: 42px;
+      cursor: pointer;
+      font-size: 1em;
+      color: #999;
+    }
+
+    .toggle-password i {
+      pointer-events: none;
+    }
+
+    .login-left button,
+    .login-left .google-btn {
+      width: 100%;
+      padding: 14px;
+      font-size: 1em;
+      margin-top: 20px;
+      border: none;
+      border-radius: 8px;
+    }
+
+    .login-left button {
+      background-color: #4f46e5;
+      color: white;
+      font-weight: 600;
+      transition: background-color 0.3s;
+    }
+
+    .login-left button:hover {
+      background-color: #3730a3;
+    }
+
+    .google-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #ffffff;
+      border: 1px solid #ccc;
+      color: #333;
+      font-weight: 500;
+      text-decoration: none;
+    }
+
+    .google-btn img {
+      height: 20px;
+      margin-right: 10px;
+    }
+
+    .login-left .options {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.9em;
+      margin-top: 10px;
+    }
+
+    .login-left .options label {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      color: #444;
+    }
+
+    .login-left a {
+      color: #4f46e5;
+      text-decoration: none;
+    }
+
+    .login-left a:hover {
+      text-decoration: underline;
+    }
+
+    .login-right {
+      display: none;
+    }
+
+    @media(min-width: 900px) {
+      .login-left {
+        padding: 60px 50px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <nav>
+    <div class="logo">SMART LEAK DETECTION SYSTEM</div>
+    <ul>
+      <li><a href="{{ url_for('home') }}">Home</a></li>
+      <li><a href="{{ url_for('about') }}">About</a></li>
+      <li><a href="{{ url_for('contact') }}">Contact</a></li>
+    </ul>
+    <div class="nav-buttons">
+      <a href="{{ url_for('login') }}">Login</a>
+      <a href="{{ url_for('signup') }}">Signup</a>
+    </div>
+  </nav>
+
+  <!-- Login Page Content -->
+  <div class="login-container">
+    <div class="login-left">
+      <h2>LOGIN</h2>
+      <p>Please enter your login details below.</p>
+
+      <input type="email" id="email" placeholder="Email address" value="vivi@gmail.com" onblur="validateEmail()" />
+      <div class="error-message" id="email-error">Invalid email address</div>
+
+      <div class="password-wrapper">
+        <label for="password" class="password-label">Password</label>
+        <input type="password" id="password" value="123" />
+        <span class="toggle-password" onclick="togglePassword()">
+          <i class="fas fa-eye" id="eyeIcon"></i>
+        </span>
+      </div>
+
+      <div class="options">
+        <label for="remember">
+          <input type="checkbox" id="remember" /> Remember for 30 days
+        </label>
+        <a href="{{ url_for('forgot_password') }}">Forgot password?</a>
+      </div>
+
+      <button type="submit" onclick="validateLogin()">Sign in</button>
+
+      <a href="{{ url_for('google.login') }}" class="google-btn">
+        <img src="https://developers.google.com/identity/images/g-logo.png" alt="Google logo" />
+        Sign in with Google
+      </a>
+
+      <p style="margin-top: 20px; text-align: center;">Don't have an account? <a href="{{ url_for('signup') }}">Sign up</a></p>
+    </div>
+  </div>
+
+  <script>
+    function validateEmail() {
+      const email = document.getElementById("email").value;
+      const emailError = document.getElementById("email-error");
+      const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      emailError.style.display = regex.test(email) ? "none" : "block";
+    }
+
+    function togglePassword() {
+      const passwordInput = document.getElementById("password");
+      const eyeIcon = document.getElementById("eyeIcon");
+      const isPassword = passwordInput.type === "password";
+      passwordInput.type = isPassword ? "text" : "password";
+
+      if (isPassword) {
+        eyeIcon.classList.remove("fa-eye");
+        eyeIcon.classList.add("fa-eye-slash");
+      } else {
+        eyeIcon.classList.remove("fa-eye-slash");
+        eyeIcon.classList.add("fa-eye");
+      }
+    }
+
+    function validateLogin() {
+      const email = document.getElementById("email").value;
+      const password = document.getElementById("password").value;
+      const emailError = document.getElementById("email-error");
+    
+      if (!email || !password) {
+        alert("Please fill in all fields.");
+        return false;
+      }
+    
+      if (emailError.style.display === "block") {
+        alert("Please enter a valid email.");
+        return false;
+      }
+    
+      if (email === "vivi@gmail.com" && password === "123") {
+        alert("Login successful!");
+        window.location.href = "{{ url_for('services') }}"; // <--- Redirect to services
+      } else {
+        alert("Invalid credentials. Try again.");
+      }
+    
+      return true;
+    }    
+  </script>
+</body>
+</html>

@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Our Services</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background-color: #f9fafb;
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: #1f2937;
+      color: white;
+      padding: 15px 30px;
+    }
+
+    nav .logo {
+      font-size: 1.5em;
+      font-weight: 800;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 20px;
+      margin: 0;
+      padding: 0;
+    }
+
+    nav ul li a,
+    .nav-buttons a {
+      color: white;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .nav-buttons {
+      display: flex;
+    }
+
+    .nav-buttons a {
+      margin-left: 15px;
+      background-color: #4f46e5;
+      padding: 8px 14px;
+      border-radius: 6px;
+    }
+
+    .nav-buttons a:hover {
+      background-color: #3730a3;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: auto;
+      padding: 200px 20px 60px;
+    }
+
+    h1 {
+      text-align: center;
+      font-size: 2.8em;
+      margin-bottom: 40px;
+      font-weight: 800;
+    }
+
+    .card-wrapper {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 30px;
+      justify-content: center;
+    }
+
+    .card {
+      flex: 1 1 300px;
+      background-color: white;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      border-radius: 10px;
+      overflow: hidden;
+      transition: transform 0.2s;
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .card:hover {
+      transform: scale(1.02);
+    }
+
+    .card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+
+    .card-content {
+      padding: 20px;
+    }
+
+    .card-content h3 {
+      font-weight: bold;
+      margin: 0 0 10px;
+    }
+
+    .card-content p {
+      color: #555;
+    }
+
+    @media (max-width: 768px) {
+      h1 {
+        font-size: 2em;
+      }
+      .nav-buttons a {
+        font-size: 0.9em;
+        padding: 6px 10px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <nav>
+    <div class="logo">SMART LEAK DETECTION SYSTEM</div>
+    <ul>
+      <li><a href="{{ url_for('home') }}">Home</a></li>
+      <li><a href="{{ url_for('about') }}">About</a></li>
+      <li><a href="{{ url_for('contact') }}">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- Main Content -->
+  <div class="container">
+    <h1>DISTRIBUTIONS</h1>
+    <div class="card-wrapper">
+
+      <!-- Real-time Monitoring Card -->
+      <a href="{{ url_for('model') }}" class="card">
+        <img src="https://smartec.ch/wp-content/uploads/2017/01/10-SMARTEC-Strain-Sensors-on-a-Pipeline.jpg" alt="Real-time Monitoring">
+        <div class="card-content">
+          <h3>Real-time pipeline monitoring &gt;</h3>
+          <p>Stay informed about your underground pipelines with real-time monitoring.</p>
+        </div>
+      </a>
+
+      <!-- Dashboard Card -->
+      <a href="{{ url_for('dashboard') }}" class="card">
+        <img src="https://cdn.prod.website-files.com/64fef88ee8b22d3d21b715a2/65853d771eeb000e960dd8af_What%20is%20Data%20Monitoring.webp" alt="User Dashboard">
+        <div class="card-content">
+          <h3>User-friendly dashboard &gt;</h3>
+          <p>Easily navigate through your pipeline data with our intuitive dashboard.</p>
+        </div>
+      </a>
+
+      <!-- History Card -->
+      <a href="{{ url_for('history') }}" class="card">
+        <img src="https://simplygreenplumbing.com/wp-content/uploads/2021/03/burst-pipes-scaled.jpg" alt="Leak Alerts">
+        <div class="card-content">
+          <h3>History Leak detection &gt;</h3>
+          <p>Receive instant alerts for any leak detected in the pipelines.</p>
+        </div>
+      </a>
+
+    </div>
+  </div>
+</body>
+</html>

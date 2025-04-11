@@ -1,0 +1,334 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body, html {
+  font-family: 'Poppins', sans-serif;
+}
+
+nav {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 80px;
+  background-color: white;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 50px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  z-index: 1000;
+}
+
+.logo {
+  font-weight: 800;
+  font-size: 20px;
+  letter-spacing: 1px;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 30px;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+}
+
+.nav-buttons a {
+  text-decoration: none;
+  border: 2px solid #000;
+  padding: 8px 15px;
+  margin-left: 10px;
+  font-weight: bold;
+  color: #000;
+}
+
+.hero {
+  position: relative;
+  height: 80vh;
+  margin-top: 80px;
+  background: url('https://indianinfrastructure.com/wp-content/uploads/2021/06/II-47.jpg') no-repeat center center/cover;
+  /* Removed the fade transition */
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.60);
+}
+
+.hero-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: white;
+  width: 90%;
+  max-width: 700px;
+  z-index: 1;
+}
+
+.hero-content h1 {
+  font-size: 3rem;
+  font-weight: 800;
+  line-height: 1.2;
+}
+
+.hero-content p {
+  font-size: 1.2rem;
+  margin-top: 10px;
+}
+
+.hero-content button {
+  margin-top: 20px;
+  padding: 12px 30px;
+  background-color: #1db954;
+  border: none;
+  color: white;
+  font-weight: bold;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  nav {
+    padding: 0 20px;
+  }
+
+  .hero-content h1 {
+    font-size: 2rem;
+  }
+
+  .hero-content p {
+    font-size: 1rem;
+  }
+
+  .hero-content button {
+    padding: 10px 20px;
+    font-size: 0.9rem;
+  }
+  .about-section {
+  padding: 80px 0;
+  background-color: #f9f9f9; /* Page background */
+}
+
+.text-box {
+  background-color: rgba(0, 0, 0, 0.85); /* Black shadow effect */
+  padding: 30px;
+  border-radius: 10px;
+  color: white;
+  box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.6);
+  position: relative;
+  z-index: 2;
+}
+
+.text-box h2 {
+  font-size: 32px;
+  font-weight: 700;
+  color: #fff;
+}
+
+.text-box p {
+  font-size: 18px;
+  color: #ddd;
+}
+.about-section {
+  padding: 60px 20px;
+  background-color: #f2f2f2;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.content-block {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.text-box {
+  flex: 1 1 45%;
+  background-color: rgba(0, 0, 0, 0.85); /* Black shadow effect */
+  padding: 30px;
+  margin: 10px;
+  border-radius: 10px;
+  box-shadow: 0 0 40px rgba(0, 0, 0, 0.6); /* Shadow around box */
+  color: #fff;
+  z-index: 1;
+  position: relative;
+}
+
+.text-box h2 {
+  margin-bottom: 15px;
+  font-size: 32px;
+}
+
+.text-box p {
+  font-size: 18px;
+  line-height: 1.6;
+}
+
+.image-box {
+  flex: 1 1 45%;
+  text-align: center;
+  margin: 10px;
+}
+
+.image-box img {
+  width: 100%;
+  max-width: 500px;
+  border-radius: 10px;
+}
+
+.about-section {
+  padding: 80px 20px;
+  background: linear-gradient(to right, #f6f6f6, #ffffff);
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.section-title {
+  font-size: 36px;
+  font-weight: bold;
+  color: #1a3e6b;
+  margin-bottom: 20px;
+}
+
+.intro-text {
+  font-size: 18px;
+  line-height: 1.6;
+  color: #333;
+}
+
+.info-box {
+  background-color: #fdf0e3;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 15px rgba(0,0,0,0.1);
+  color: #333;
+}
+
+.info-box h3 {
+  color: #1a3e6b;
+  font-size: 28px;
+  margin-bottom: 15px;
+}
+
+.info-box p {
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+.img-fluid {
+  max-width: 100%;
+  border-radius: 10px;
+}
+/* Smooth Scroll */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Base Styles */
+body {
+  font-family: 'Open Sans', sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+/* Navbar Styles */
+.navbar {
+  background-color: #1a3e6b;
+  padding: 15px 30px;
+}
+
+.navbar ul {
+  list-style: none;
+  display: flex;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar li {
+  margin-right: 20px;
+}
+
+.navbar a {
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+  font-size: 16px;
+}
+
+/* About Section */
+.about-section {
+  padding: 80px 20px;
+  background-color: #f4f4f4;
+}
+
+.about-wrapper {
+  display: flex;
+  flex-direction: row;
+  max-width: 1200px;
+  margin: 0 auto;
+  align-items: flex-start;
+  gap: 40px;
+}
+
+/* Left Image */
+.about-image img {
+  width: 100%;
+  max-width: 500px;
+  border-radius: 8px;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Right Content Box */
+.about-content {
+  background-color: #fbeedc;
+  padding: 30px 40px;
+  border-radius: 8px;
+  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.08);
+  flex: 1;
+}
+
+.section-title {
+  font-size: 26px;
+  font-weight: bold;
+  color: #1a3e6b;
+  margin-bottom: 20px;
+}
+
+.about-content p {
+  font-size: 16px;
+  line-height: 1.6;
+  margin-bottom: 15px;
+  color: #333;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .about-wrapper {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .about-image img {
+    max-width: 100%;
+  }
+
+  .about-content {
+    width: 100%;
+    padding: 25px;
+  }
+}
+
+  
+}

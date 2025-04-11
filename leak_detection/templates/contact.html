@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Contact Us - Smart Leak Detection System</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background-color: #f5f5f5;
+      color: #333;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    nav {
+      background: #111;
+      color: #fff;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 40px;
+    }
+
+    nav .logo {
+      font-size: 1.2rem;
+      font-weight: bold;
+    }
+
+    nav ul {
+      display: flex;
+      gap: 20px;
+      list-style: none;
+    }
+
+    nav ul li a, .nav-buttons a {
+      color: #fff;
+      text-decoration: none;
+      transition: 0.3s;
+    }
+
+    nav ul li a:hover, .nav-buttons a:hover {
+      color: #a855f7;
+    }
+
+    .nav-buttons a {
+      margin-left: 20px;
+      background: #a855f7;
+      padding: 8px 14px;
+      border-radius: 6px;
+    }
+
+    .hero {
+      background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://img.freepik.com/free-vector/send-message-by-phone-concept-illustration_114360-20242.jpg?semt=ais_country_boost&w=740') center/cover no-repeat;
+      height: 60vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+
+    .hero h1 {
+      color: #fff;
+      font-size: 3.5rem;
+      animation: fadeInDown 1.5s ease forwards;
+    }
+
+    @keyframes fadeInDown {
+      0% { opacity: 0; transform: translateY(-30px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+
+    .contact-section {
+      max-width: 800px;
+      margin: 50px auto;
+      background: #fff;
+      padding: 40px;
+      border-radius: 12px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    }
+
+    .contact-section h2 {
+      text-align: center;
+      font-size: 2.2rem;
+      margin-bottom: 20px;
+      color: #333;
+    }
+
+    .contact-section form {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .contact-section input, .contact-section textarea {
+      padding: 12px 15px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 1rem;
+      resize: vertical;
+    }
+
+    .contact-section button {
+      background: #a855f7;
+      color: #fff;
+      border: none;
+      padding: 12px;
+      font-size: 1rem;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: 0.3s ease;
+    }
+
+    .contact-section button:hover {
+      background: #9333ea;
+    }
+
+    .success-message {
+      background: #d1fae5;
+      padding: 10px 15px;
+      border: 1px solid #10b981;
+      color: #065f46;
+      margin-top: 15px;
+      border-radius: 8px;
+      text-align: center;
+    }
+
+    footer {
+      background: #111;
+      color: #fff;
+      padding: 40px 20px;
+      text-align: center;
+      margin-top: auto;
+    }
+
+    footer a {
+      color: #a855f7;
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+
+    footer .social-links a {
+      color: #fff;
+      margin: 0 10px;
+      text-decoration: none;
+      transition: 0.3s ease;
+      font-size: 1.1rem;
+    }
+
+    footer .social-links a:hover {
+      color: #a855f7;
+    }
+
+    footer .social-links i {
+      margin-right: 6px;
+    }
+
+    @media (max-width: 768px) {
+      .hero h1 {
+        font-size: 2.2rem;
+        padding: 0 20px;
+      }
+
+      nav {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      nav ul {
+        flex-direction: column;
+        gap: 10px;
+        margin-top: 10px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav>
+    <div class="logo">SMART LEAK DETECTION SYSTEM</div>
+    <ul>
+      <li><a href="{{ url_for('home') }}">Home</a></li>
+      <li><a href="{{ url_for('about') }}">About</a></li>
+      <li><a href="{{ url_for('contact') }}">Contact</a></li>
+    </ul>
+    <div class="nav-buttons">
+      <a href="{{ url_for('login') }}">Login</a>
+      <a href="{{ url_for('signup') }}">Signup</a>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <h1>Contact Us</h1>
+  </section>
+
+  <!-- Contact Form -->
+  <section class="contact-section">
+    <h2>post your query</h2>
+    <form method="POST">
+      <input type="text" name="name" placeholder="Your Name" required>
+      <input type="email" name="email" placeholder="Your Email" required>
+      <textarea name="message" rows="5" placeholder="Your Message..." required></textarea>
+      <button type="submit">Send Message</button>
+    </form>
+    {% if message %}
+      <div class="success-message">{{ message }}</div>
+    {% endif %}
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div>
+      <p>Email: <a href="mailto:smartleakdetection@example.com">smartleakdetection@example.com</a></p>
+      <p>Phone: <a href="tel:+919876543210">+91 98765 43210</a></p>
+      <div class="social-links" style="margin-top: 15px;">
+        <a href="https://instagram.com/your_instagram" target="_blank"><i class="fab fa-instagram"></i>Instagram</a> |
+        <a href="https://facebook.com/your_facebook" target="_blank"><i class="fab fa-facebook"></i>Facebook</a> |
+        <a href="https://youtube.com/your_youtube" target="_blank"><i class="fab fa-youtube"></i>YouTube</a>
+      </div>
+      <p style="margin-top: 20px; font-size: 0.9rem; color: #aaa;">&copy; 2025 Smart Leak Detection System. All rights reserved.</p>
+    </div>
+  </footer>
+
+</body>
+</html>
